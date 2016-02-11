@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="css/app.css">
   </head>
   <body>
-    <script type="text/x-handlebars" data-template-name="devices">
+    <script type="text/x-handlebars" data-template-name="home">
     <div class="container">
-      {{#link-to "devices"}}About{{/link-to}}
       <div class="header">
         <h4>Active Devices</h4>
         <p>The list of devices actively communicating with the Monitoring Center.</p>
@@ -52,50 +51,19 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>2BB2KC7GLDAA00110007</td>
-                <td>ISODate("2015-09-01T12:25:23Z")</td>
-                <td>Cherry</td>
-                <td>6297520</td>
-                <td>Rio</td>
-                <td>Dell Inc.</td>
-                <td>Latitude E7440</td>
-                <td>Windows 8.1 (64 bit)</td>
-                <td><button class="btn btn-sm btn-danger">remove</button></td>
-              </tr>
-              <tr>
-                <td>2BB2KC7GLDAA00110007</td>
-                <td>ISODate("2015-09-01T12:25:23Z")</td>
-                <td>Cherry</td>
-                <td>6297520</td>
-                <td>Rio</td>
-                <td>Dell Inc.</td>
-                <td>Latitude E7440</td>
-                <td>Windows 8.1 (64 bit)</td>
-                <td><button class="btn btn-sm btn-danger">remove</button></td>
-              </tr>
-              <tr>
-                <td>2BB2KC7GLDAA00110007</td>
-                <td>ISODate("2015-09-01T12:25:23Z")</td>
-                <td>Cherry</td>
-                <td>6297520</td>
-                <td>Rio</td>
-                <td>Dell Inc.</td>
-                <td>Latitude E7440</td>
-                <td>Windows 8.1 (64 bit)</td>
-                <td><button class="btn btn-sm btn-danger">remove</button></td>
-              </tr>
-              <tr>
-                <td>2BB2KC7GLDAA00110007</td>
-                <td>ISODate("2015-09-01T12:25:23Z")</td>
-                <td>Cherry</td>
-                <td>6297520</td>
-                <td>Rio</td>
-                <td>Dell Inc.</td>
-                <td>Latitude E7440</td>
-                <td>Windows 8.1 (64 bit)</td>
-                <td><button class="btn btn-sm btn-danger">remove</button></td>
-              </tr>
+              {{#each model as |device|}}
+                <tr>
+                  <td>{{device.identifier}}</td>
+                  <td>{{device.lastUpdated}}</td>
+                  <td>{{device.userName}}</td>
+                  <td>{{device.serialNumber}}</td>
+                  <td>{{device.deviceName}}</td>
+                  <td>{{device.make}}</td>
+                  <td>{{device.model}}</td>
+                  <td>{{device.os}}</td>
+                  <td><button class="btn btn-sm btn-danger">remove</button></td>
+                </tr>
+              {{/each}}
             </tbody>
           </table>
         </form>
