@@ -1,0 +1,10 @@
+{
+  "name": "ui-assessment",
+  "version": "1.0.0",
+  "description": "",
+  "author": "rexwang",
+  "dependencies": {
+    "browser-sync": "^2.7.13",
+    "gulp": "^3.9.0"
+  }
+}
