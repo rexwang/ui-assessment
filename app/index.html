@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/app.css">
   </head>
   <body>
-    <script type="text/x-handlebars" data-template-name="home">
+    <script type="text/x-handlebars" data-template-name="devices">
     <div class="container">
       <div class="header">
         <h4>Active Devices</h4>
@@ -39,8 +39,14 @@
           <table class="table">
             <thead>
               <tr>
-                <th><input type="text" class="form-control"><br>Identifier</th>
-                <th><input type="text" class="form-control"><br>Last Updated</th>
+                <th>{{input
+                      type="text"
+                      class="form-control"
+                      value=newIdentifier}}<br>Identifier</th>
+                <th>{{input
+                      type="text"
+                      class="form-control"
+                      value=newUsername}}<br>Last Updated</th>
                 <th><input type="text" class="form-control"><br>Username</th>
                 <th><input type="text" class="form-control"><br>Serial Number</th>
                 <th><input type="text" class="form-control"><br>Device Name</th>

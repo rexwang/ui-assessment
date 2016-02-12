@@ -6,36 +6,43 @@
   });
 
   App.Router.map(function() {
-    this.route('home', { path: '/' });
-    this.route('devices');
+    this.route('devices', {path: '/'});
   });
 
   App.Device = DS.Model.extend({
-   identifier: DS.attr('string'),
-   lastUpdated: DS.attr('string'),
-   userName: DS.attr('string'),
-   serialNumber: DS.attr('string'),
-   deviceName: DS.attr('string'),
-   make: DS.attr('string'),
-   model: DS.attr('string'),
-   os: DS.attr('string')
+    id: DS.attr(),
+    identifier: DS.attr(),
+    lastUpdated: DS.attr(),
+    userName: DS.attr(),
+    serialNumber: DS.attr(),
+    deviceName: DS.attr(),
+    make: DS.attr(),
+    model: DS.attr(),
+    os: DS.attr()
   });
 
-  App.HomeRoute = Ember.Route.extend({
+  App.DevicesRoute = Ember.Route.extend({
     model: function() {
-      return $.getJSON('public/MOCK_DATA.json');
+      return Ember.$.getJSON('public/MOCK_DATA.json');
+    },
+    actions: {
+      refreshModel: function() {
+        this.refresh();
+      }
     }
   });
 
-  App.HomeController = Ember.Controller.extend({
+  App.DevicesController = Ember.ArrayController.extend({
     actions: {
       add: function() {
+        var identifier = this.get('newIdentifier');
+        if (!identifier.trim()) { return; }
 
+        this.set('newIdentifier', '');
+        this.send('refreshModel');
       },
       remove: function() {
-        this.get('model').shift();
 
-        this.set('model', this.get('model'));
       }
     }
   });
