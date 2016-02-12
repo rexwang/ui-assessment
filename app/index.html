@@ -47,11 +47,11 @@
                 <th><input type="text" class="form-control"><br>Make</th>
                 <th><input type="text" class="form-control"><br>Model</th>
                 <th><input type="text" class="form-control"><br>OS Name</th>
-                <th><button id="addDevice" class="btn btn-sm btn-success">Add Device</button><br></th>
+                <th><button id="addDevice" class="btn btn-sm btn-success" {{action 'add'}}>Add Device</button><br></th>
               </tr>
             </thead>
             <tbody>
-              {{#each model as |device|}}
+              {{#each model key="id" as |device|}}
                 <tr>
                   <td>{{device.identifier}}</td>
                   <td>{{device.lastUpdated}}</td>
@@ -61,7 +61,7 @@
                   <td>{{device.make}}</td>
                   <td>{{device.model}}</td>
                   <td>{{device.os}}</td>
-                  <td><button class="btn btn-sm btn-danger">remove</button></td>
+                  <td><button class="btn btn-sm btn-danger" {{action 'remove'}}>remove</button></td>
                 </tr>
               {{/each}}
             </tbody>
@@ -73,10 +73,10 @@
 
     <script src="libs/handlebars.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ember.js/1.13.0/ember-template-compiler.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ember.js/1.13.0/ember.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ember.js/1.13.0/ember.debug.js"></script>
-    <!-- <script src="libs/ember-data.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ember.js/1.10.0/ember-template-compiler.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ember.js/1.10.0/ember.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ember-data.js/1.13.0/ember-data.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ember.js/1.10.0/ember.debug.js"></script>
     <script src="libs/bootstrap.min.js"></script>
     <script src="app.js"></script>
 
